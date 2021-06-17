@@ -1,0 +1,68 @@
+conda create -n testing  python=3.9  -y
+conda activate testing  
+
+pip3 install xgboost==1.1.1 streamlit dash DateTime scikit-learn \
+             watchdog matplotlib tqdm pandas numpy
+
+# install Pfeature
+wget -c https://webs.iiitd.edu.in/raghava/pfeature/Pfeature_Library.zip
+unzip Pfeature_Library.zip
+cd Pfeature
+python setup.py install
+
+
+#run APP
+streamlit run toxic_pred_app.py
+
+
+
+1. streamlit
+2. Pfeature
+3. datetime
+4. dash
+5. sklerm
+6. xgboost
+
+下面是所有的libraries：
+# libraries --------------------------------------------------------
+import pickle
+from numpy.core.fromnumeric import shape
+import streamlit as st
+import SessionState
+import numpy as np
+import pandas as pd
+from jinja2 import Environment, FileSystemLoader
+import streamlit as st
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+from datetime import datetime
+from datetime import date
+import dash
+import dash_table
+import dash_core_components as dcc
+
+# libraries for pfeature-feature calculations 
+from Pfeature.pfeature import *
+from Pfeature.pfeature import aac_wp
+import sys
+import importlib
+importlib.reload(sys)
+if sys.version[0] == '2':
+    importlib.reload(sys)
+    sys.setdefaultencoding("utf-8")
+from six import StringIO
+
+# libraries for xgboost 
+from sklearn.metrics import classification_report, accuracy_score
+import xgboost
+from sklearn.metrics import accuracy_score
+from xgboost import XGBClassifier
+from sklearn.datasets import load_iris
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn import metrics
+from  sklearn.datasets import make_hastie_10_2
+from xgboost.sklearn import XGBClassifier

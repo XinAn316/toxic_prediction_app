@@ -1,0 +1,1 @@
+web: sh setup.sh && streamlit run toxic_pred_app.py
